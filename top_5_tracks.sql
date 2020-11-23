@@ -5,4 +5,4 @@ FROM InvoiceLine i
 JOIN Track t ON t.TrackId = i.TrackId
 GROUP BY t.Name
 ORDER BY Purchase_count DESC
-LIMIT 5
+LIMIT 3
