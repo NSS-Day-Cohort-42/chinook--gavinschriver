@@ -8,4 +8,5 @@ GROUP BY CASE
     WHEN InvoiceDate LIKE "%2011" THEN "2011"
     ELSE NULL
     END
-ORDER BY InvoiceDate
+ORDER BY InvoiceDate;
+
