@@ -9,4 +9,4 @@ JOIN Track t ON t.AlbumId = al.Albumid
 JOIN InvoiceLine il ON il.TrackId = t.TrackId
 GROUP BY a.Name
 ORDER BY Artist_Track_Purchases DESC
-LIMIT 5;
+LIMIT 3;

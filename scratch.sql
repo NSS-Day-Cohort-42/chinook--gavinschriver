@@ -59,6 +59,22 @@ FROM
     FROM Invoice i
     JOIN Customer c ON c.CustomerId = i.CustomerId
     JOIN Employee e ON e.EmployeeId = c.SupportRepId
-    GROUP BY e.EmployeeId)
+    GROUP BY e.EmployeeId);
 
 
+
+--Total Sales (via Invoice table)
+SELECT SUM(Total) FROM Invoice;
+
+SELECT DISTINCT TrackId FROM InvoiceLine;
+
+
+--If we don't Group by CASE, we'll get records for every INVOICE for these two years
+SELECT 
+    SUBSTR(InvoiceDate, 1, 4) AS 'Year', 
+    ('$' || SUM(Total)) AS 'Total_Sales' 
+FROM Invoice
+WHERE InvoiceDate LIKE "%2009%" OR InvoiceDate LIKE "%2011%"
+GROUP BY InvoiceDate;
+
+SELECT TrackId, COUNT(*) Track_Purchases FROM InvoiceLine GROUP BY TrackId; 
